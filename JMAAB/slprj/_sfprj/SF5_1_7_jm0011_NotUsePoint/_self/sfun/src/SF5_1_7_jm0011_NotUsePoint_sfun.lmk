@@ -1,0 +1,29 @@
+CC     = "C:\Matlab\R2016b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Matlab\R2016b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Matlab\R2016b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"C:\Matlab\R2016b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"SF5_1_7_jm0011_NotUsePoint_sfun.obj"\
+	"c3_SF5_1_7_jm0011_NotUsePoint.obj"\
+	"SF5_1_7_jm0011_NotUsePoint_sfun_registry.obj"\
+	"SF5_1_7_jm0011_NotUsePoint.obj"\
+	"lccstub.obj"\
+
+INCLUDE_PATH= -I"C:\Matlab\R2016b\sys\lcc64\lcc64\include64"  -I"C:\Matlab\R2016b\extern\include"  -I"C:\Matlab\R2016b\simulink\include"  -I"C:\Matlab\R2016b\simulink\include\sf_runtime"  -I"C:\Matlab\R2016b\stateflow\c\mex\include"  -I"C:\Matlab\R2016b\rtw\c\src"  -I"C:\MW\Simulink_SF\Modeling_Guideline_doc\cg_Guidline\StateflowGuideline\JMAAB\slprj\_sfprj\SF5_1_7_jm0011_NotUsePoint\_self\sfun\src"  -I"C:\MW\simulink_sf\modeling_guideline_doc\cg_guidline\stateflowguideline\JMAAB\slprj\_sfprj\sf5_1_7_jm0011_notusepoint\_self\sfun\src"  -I"C:\MW\simulink_sf\modeling_guideline_doc\cg_guidline\stateflowguideline\JMAAB" 
+ 
+
+SF5_1_7_jm0011_NotUsePoint_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o SF5_1_7_jm0011_NotUsePoint_sfun.mexw64 @SF5_1_7_jm0011_NotUsePoint_sfun.lmko
+SF5_1_7_jm0011_NotUsePoint_sfun.obj :	"SF5_1_7_jm0011_NotUsePoint_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "SF5_1_7_jm0011_NotUsePoint_sfun.c"
+c3_SF5_1_7_jm0011_NotUsePoint.obj :	"c3_SF5_1_7_jm0011_NotUsePoint.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_SF5_1_7_jm0011_NotUsePoint.c"
+SF5_1_7_jm0011_NotUsePoint_sfun_registry.obj :	"SF5_1_7_jm0011_NotUsePoint_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "SF5_1_7_jm0011_NotUsePoint_sfun_registry.c"
+SF5_1_7_jm0011_NotUsePoint.obj :	"C:\MW\simulink_sf\modeling_guideline_doc\cg_guidline\stateflowguideline\JMAAB\SF5_1_7_jm0011_NotUsePoint.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\MW\simulink_sf\modeling_guideline_doc\cg_guidline\stateflowguideline\JMAAB\SF5_1_7_jm0011_NotUsePoint.c"
+lccstub.obj :	"C:\Matlab\R2016b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Matlab\R2016b\sys\lcc64\lcc64\mex\lccstub.c"
